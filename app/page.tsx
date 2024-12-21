@@ -53,6 +53,21 @@ export default function Home() {
     }
   };
 
+  // Fonction pour supprimer une tâche
+  const deleteTodo = async (id: string) => {
+    try {
+      const response = await fetch(`/api/todo/${id}`, {
+        method: "DELETE",
+      });
+      const result: { success: boolean } = await response.json();
+      if (result.success) {
+        setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+      }
+    } catch (error) {
+      console.error("Error deleting todo:", error);
+    }
+  };
+
   return (
     <div>
       <header className="responsive">
@@ -65,11 +80,11 @@ export default function Home() {
       <main>
         <section className="responsive">
           <h2>Add a new todo</h2>
-          <AddTodo onAddTodo={addTodo} />
+          <AddTodo onAddTodo={addTodo}  />
         </section>
         <section className="responsive">
           <h2>Todo List</h2>
-          <TodoList todos={todos} />
+          <TodoList todos={todos} onDeleteTodo={deleteTodo} />
         </section>
       </main>
     </div>

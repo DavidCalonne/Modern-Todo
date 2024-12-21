@@ -47,7 +47,7 @@ export default function AddTodo({ onAddTodo }: AddTodoProps) {
       >
         {selectedCategory || "Select a Category"}
       </Selector>
-      <Button type="primary" onClick={handleAddTodo}>
+      <Button type="secondary" onClick={handleAddTodo}>
         <Plus height={16} width={16} />
         Add Todo
       </Button>

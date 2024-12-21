@@ -39,7 +39,7 @@ export default function Selector({
   return (
     <div ref={selectorRef} className={`selector ${className}`}>
       <Button
-        className={`button primary ${isDisabled ? "disabled" : ""}`}
+        className={`button outline-primary ${isDisabled ? "disabled" : ""}`}
         onClick={() => !isDisabled && setIsOpen(!isOpen)}
       >
         {children}

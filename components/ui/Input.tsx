@@ -5,6 +5,7 @@ export default function Input(props: any) {
         placeholder={props.placeholder}
         onChange={props.onChange}
         className={`input input-${props.type}`}
+        value={props.value}
         {...props}
     />
 )

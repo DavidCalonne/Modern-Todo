@@ -11,7 +11,7 @@ interface Todo {
 
 const filePath = path.join(process.cwd(), "data", "todo.json");
 
-export async function GET() {
+async function GET() {
   try {
     const fileContent = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf-8") : "[]";
     const todos: Todo[] = JSON.parse(fileContent);
@@ -21,10 +21,9 @@ export async function GET() {
   }
 }
 
-export async function POST(req: Request) {
+async function POST(req: Request) {
   try {
     const body: Omit<Todo, "id"> = await req.json();
-
     let todos: Todo[] = [];
     if (fs.existsSync(filePath)) {
       const fileContent = fs.readFileSync(filePath, "utf-8");
@@ -32,7 +31,7 @@ export async function POST(req: Request) {
     }
 
     const newTodo: Todo = {
-      id: Math.random().toString(36).substr(2, 9), // ID unique
+      id: Math.random().toString(36).substr(2, 9), // ID
       ...body,
     };
     todos.push(newTodo);
@@ -44,3 +43,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }
+export { GET, POST };
