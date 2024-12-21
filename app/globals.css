@@ -1,12 +1,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #251F47;
+  --primary2: #404E7C;
+  --secondary: #71B48D;
+  --secondary2: #86CB92;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary2: #251F47;
+    --primary: #404E7C;
+    --secondary2: #71B48D;
+    --secondary: #86CB92;
   }
 }
 
@@ -39,4 +47,50 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+.button{
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+}
+.button:hover{
+  cursor: pointer;
+}
+.button.primary{
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.button.primary:hover{
+  background-color: var(--primary2);
+  border: 2px solid var(--primary2);
+}
+.button.outline-primary{
+  border: 2px solid var(--primary);
+  background-color: transparent;
+}
+.button.outline-primary:hover{
+  background-color: var(--primary);
+}
+.button.secondary{
+  background-color: var(--secondary);
+  border: 2px solid var(--secondary);
+}
+.button.secondary:hover{
+  background-color: var(--secondary2);
+  border: 2px solid var(--secondary2);
+}
+.button.outline-secondary{
+  border: 2px solid var(--secondary);
+  background-color: transparent;
+}
+.button.outline-secondary:hover{
+  background-color: var(--secondary);
 }
