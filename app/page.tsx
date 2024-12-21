@@ -1,19 +1,27 @@
+"use client"
+
 import ManageCategory from "@/components/ManageCategory";
 import AddTodo from "@/components/AddTodo";
+import SwitchTheme from "@/components/SwitchTheme";
+
 
 export default function Home() {
   return (
     <div>
-      <header className="">
+      <header className="responsive">
+        <h1>Modern Todo</h1>
         <div>
-          <h1>Modern Todo</h1>
-          <p>A modern todo app built with NextJS and TypeScript</p>
-        </div>
-        <div>
-          <AddTodo />
           <ManageCategory />
+          <SwitchTheme />
         </div>
       </header>
+      <main>
+        <section className="responsive">
+          <h2>Add a new todo</h2>
+          <AddTodo />
+        </section>
+        
+      </main>
     </div>
   );
 }
