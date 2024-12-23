@@ -113,6 +113,7 @@ a {
   border-radius: 5px;
   background-color: var(--background);
   color: var(--foreground);
+  width: 100%;
 }
 
 .addTodo{
@@ -120,6 +121,9 @@ a {
   align-items: center;
   gap: 5px;
   margin-top: 10px;
+}
+.addTodo input{
+  max-width: 300px;
 }
 
 .selector{
